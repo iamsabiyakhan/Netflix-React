@@ -7,12 +7,10 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlicer";
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const email = useRef(null);
@@ -64,7 +62,7 @@ const Login = () => {
                   photoURL,
                 })
               );
-              navigate("/browser");
+              
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -85,7 +83,7 @@ const Login = () => {
           const { uid, email, displayName, photoURL } = auth.currentUser;
 
           dispatch(addUser({ uid, email, displayName, photoURL }));
-          navigate("/browser");
+         
         })
         .catch((error) => {
           setErrorMessage(error.code + " - " + error.message);
