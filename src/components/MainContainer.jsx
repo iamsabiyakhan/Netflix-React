@@ -10,7 +10,7 @@ import VideoBackground from './VideoBackground';
   })
   
   if(!movies) return
-  const mainMovies = movies[2];
+  const mainMovies = movies[3];
   const {original_title,overview,id} = mainMovies;
   return (
     <div>
